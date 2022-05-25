@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/brollopsfotografen/static/css/main.11b03c1a.css",
+    "main.js": "/brollopsfotografen/static/js/main.c1eaad79.js",
+    "index.html": "/brollopsfotografen/index.html",
+    "main.11b03c1a.css.map": "/brollopsfotografen/static/css/main.11b03c1a.css.map",
+    "main.c1eaad79.js.map": "/brollopsfotografen/static/js/main.c1eaad79.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11b03c1a.css",
+    "static/js/main.c1eaad79.js"
+  ]
+}
