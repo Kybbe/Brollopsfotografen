@@ -1,0 +1,201 @@
+.App {
+  background-color: #2A2E30;
+  color: white;
+}
+
+.Landing, .Login {
+  min-height: 100vh;
+  padding-top: 70px;
+  text-align: center;  
+}
+
+.Landing-buttons, .Login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Landing-buttons a {
+  cursor: default;
+}
+
+.Landing-buttons button {
+  margin-bottom: 10px;
+  background-color: white;
+  color: #2A2E30;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.Landing-buttons a:last-child {
+  margin-top: 50px;
+}
+
+.Gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+
+  padding-top: 70px;
+  min-height: calc(100vh - 70px);
+}
+
+.photo {
+  display: inline-block;
+  width: 40%;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+
+  position: relative;
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 3px;
+  aspect-ratio: 4/3;
+}
+
+.deletePhoto {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+
+  background-color: transparent;
+  color: white;
+  border: 0;
+  font-size: 1.5em;
+}
+
+.cameraVideo, .photoPreviewImg {
+  width: 100%;
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.photoPreviewImg {
+  width: 80%;
+}
+
+.Camera, .PhotoPreview {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.cameraContainer {
+  position: relative;
+  width: 80%;
+}
+
+.filterContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  overflow-x: scroll;
+}
+
+.filterButton {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  white-space: nowrap;
+}
+
+.activeFilter {
+  background-color: white;
+  color: black;
+}
+
+.flipCamera {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+}
+
+.takePhotoBtn, .newPhotoBtn {
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 1;
+
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.GoBackToCameraBtnLink, .GoToGalleryBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.GoBackToCameraBtn, .GoToGalleryBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GoBackToCameraBtn img, .GoToGalleryBtn img {
+  width: 40px;
+  height: 40px;
+}
+
+@media (min-width: 640px) {
+  .cameraContainer, .photoPreviewImg {
+    width: 640px;
+    height: 480px;
+  }
+
+  .photo {
+    width: 300px;
+  }
+
+  .filterContainer {
+    width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .photo {
+    width: 300px;
+  }
+}
