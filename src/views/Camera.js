@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Camera from '../components/CameraModule';
 import PhotoPreview from '../components/PhotoPreview';
 
+import menuIcon from '../Menu.png';
+
 export default function Kamera({images, addImage}) {
   var notificationPermission = "";
   const [image, setImage] = useState(null);
@@ -62,7 +64,7 @@ export default function Kamera({images, addImage}) {
       { image ? <PhotoPreview image={image} setImage={setImage} /> : <Camera setImage={setImage} notis={sendNotif} /> }
 
       <Link to="/Galleri">
-        <button className='GoToGalleryBtn'><img src='Menu.png' alt='Menu'></img></button>
+        <button className='GoToGalleryBtn'><img src={menuIcon} alt='Menu'></img></button>
       </Link>
     </div>
   );

@@ -38,52 +38,54 @@ function App() {
     }
   }, []);
 
-  function createBin() {
-    let req = new XMLHttpRequest();
-  
-    req.onreadystatechange = () => {
-      if (req.readyState === XMLHttpRequest.DONE) {
-        console.log(req.responseText);
-      }
-    };
-      
-    req.open("POST", "https://api.jsonbin.io/v3/b", true);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", jsonBinApi);
-    req.send('{"images": [] }');
+  async function createBin() {
+    let url = "https://api.jsonbin.io/b";
+    let response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": jsonBinApi,
+      },
+      body: JSON.stringify({
+        "images": [],
+      }),
+    })
+
+    let json = await response.json();
+    console.log(json);
   }
 
-  function readBin() {
-    let req = new XMLHttpRequest();
+  async function readBin() {
+    let url = `https://api.jsonbin.io/v3/b/${binID}`;
+    let response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": jsonBinApi,
+      },
+    })
 
-    req.onreadystatechange = () => {
-      if (req.readyState === XMLHttpRequest.DONE) {
-        if(!imagesFromLocalStorage) {
-          // setImages(JSON.parse(req.responseText).record);
-        }
-      }
-    };
-
-    req.open("GET", `https://api.jsonbin.io/v3/b/${binID}`, false);
-    req.setRequestHeader("X-Master-Key", jsonBinApi);
-    req.send();
+    let json = await response.json();
+    console.log(json);
   }
 
-  function updateBin(data) {
+  async function updateBin(data) {
     var _lsTotal=0,_xLen,_x;for(_x in localStorage){ if(!localStorage.hasOwnProperty(_x)){continue;} _xLen= ((localStorage[_x].length + _x.length)* 2);_lsTotal+=_xLen; console.log(_x.substr(0,50)+" = "+ (_xLen/1024).toFixed(2)+" KB")};console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
 
-    let req = new XMLHttpRequest();
+    let url = `https://api.jsonbin.io/v3/b/${binID}`;
+    let response = fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": jsonBinApi,
+      },
+      body: JSON.stringify({
+        "images": data,
+      }),
+    })
 
-    req.onreadystatechange = () => {
-      if (req.readyState === XMLHttpRequest.DONE) {
-        console.log(req.responseText);
-      }
-    };
-
-    req.open("PUT", `https://api.jsonbin.io/v3/b/${binID}`, false);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", jsonBinApi);
-    req.send(JSON.stringify(data));
+    let json = await response.json();
+    console.log(json);
   }
 
   return (
