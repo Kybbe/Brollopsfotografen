@@ -25,6 +25,10 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("images", JSON.stringify(images));
+
+    if(images.length > 0) {
+      updateBin([...images]);
+    }
   }, [images]);
 
   useEffect(() => {
@@ -33,9 +37,6 @@ function App() {
     }
 
     readBin();
-    if(images.length > 0) {
-      updateBin([...images]);
-    }
   }, []);
 
   async function createBin() {
@@ -52,7 +53,6 @@ function App() {
     })
 
     let json = await response.json();
-    console.log(json);
   }
 
   async function readBin() {
@@ -66,14 +66,14 @@ function App() {
     })
 
     let json = await response.json();
-    console.log(json);
+    setImages(json.record.images);
   }
 
   async function updateBin(data) {
     var _lsTotal=0,_xLen,_x;for(_x in localStorage){ if(!localStorage.hasOwnProperty(_x)){continue;} _xLen= ((localStorage[_x].length + _x.length)* 2);_lsTotal+=_xLen; console.log(_x.substr(0,50)+" = "+ (_xLen/1024).toFixed(2)+" KB")};console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
 
     let url = `https://api.jsonbin.io/v3/b/${binID}`;
-    let response = fetch(url, {
+    let response = await fetch(url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ function App() {
     })
 
     let json = await response.json();
-    console.log(json);
+    console.log("updated bin: ", json);
   }
 
   return (

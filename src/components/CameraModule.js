@@ -44,6 +44,8 @@ export default function Camera({setImage, notis}) {
     let options = {
       audio: false,
       video: {
+        width: { ideal: 320 }, 
+        height: { ideal: 240 },
         facingMode: cameraDirection
       }
     };
