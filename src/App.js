@@ -58,9 +58,8 @@ function App() {
 
     req.onreadystatechange = () => {
       if (req.readyState === XMLHttpRequest.DONE) {
-        console.log(JSON.parse(req.responseText).record);
         if(!imagesFromLocalStorage) {
-          setImages(JSON.parse(req.responseText).record);
+          // setImages(JSON.parse(req.responseText).record);
         }
       }
     };
