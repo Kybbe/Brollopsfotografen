@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/brollopsfotografen/static/css/main.11b03c1a.css",
-    "main.js": "/brollopsfotografen/static/js/main.99e2c476.js",
+    "main.js": "/brollopsfotografen/static/js/main.ab5d54aa.js",
     "static/media/Logo.png": "/brollopsfotografen/static/media/Logo.c8937fbeeabcd2643d71.png",
     "static/media/Menu.png": "/brollopsfotografen/static/media/Menu.3069f79f6700e8ced3c4.png",
     "index.html": "/brollopsfotografen/index.html",
     "main.11b03c1a.css.map": "/brollopsfotografen/static/css/main.11b03c1a.css.map",
-    "main.99e2c476.js.map": "/brollopsfotografen/static/js/main.99e2c476.js.map"
+    "main.ab5d54aa.js.map": "/brollopsfotografen/static/js/main.ab5d54aa.js.map"
   },
   "entrypoints": [
     "static/css/main.11b03c1a.css",
-    "static/js/main.99e2c476.js"
+    "static/js/main.ab5d54aa.js"
   ]
 }
