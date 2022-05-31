@@ -28,15 +28,23 @@ function App() {
 
     if(images.length > 0) {
       updateBin([...images]);
+    } else {
+      updateBin([]);
     }
   }, [images]);
 
   useEffect(() => {
-    if (localStorage.getItem("images")) {
-      setImages(JSON.parse(localStorage.getItem("images")));
+    //get imagees form bin, if online
+    let imagesFromBin = readBin();
+    //if that doesnt work, get images from localstorage
+    if(!imagesFromBin) {
+      console.log("no images from bin, getting from localstorage");
+      //if there are any, that is
+      if (localStorage.getItem("images")) {
+        console.log("there are images in localstorage");
+        setImages(JSON.parse(localStorage.getItem("images")));
+      }
     }
-
-    readBin();
   }, []);
 
   async function createBin() {
@@ -53,6 +61,7 @@ function App() {
     })
 
     let json = await response.json();
+    console.log(json)
   }
 
   async function readBin() {
@@ -66,7 +75,7 @@ function App() {
     })
 
     let json = await response.json();
-    setImages(json.record.images);
+    return json.record.images;
   }
 
   async function updateBin(data) {

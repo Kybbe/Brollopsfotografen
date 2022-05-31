@@ -44,8 +44,8 @@ export default function Camera({setImage, notis}) {
     let options = {
       audio: false,
       video: {
-        width: { ideal: 320 }, 
-        height: { ideal: 240 },
+        width: { ideal: 220 },  // Komiskt fucking litet, bara för att dra ner storleken på bilden
+        height: { ideal: 140 },
         facingMode: cameraDirection
       }
     };
@@ -53,7 +53,7 @@ export default function Camera({setImage, notis}) {
     if (navigator.mediaDevices.getUserMedia) {
       stream = await navigator.mediaDevices.getUserMedia(options);
       video.current.srcObject = stream;
-      video.current.play();
+      // video.current.play();
     }
   }
 
@@ -82,7 +82,7 @@ export default function Camera({setImage, notis}) {
         <video ref={video} className="cameraVideo" autoPlay muted></video>
         <button className="flipCamera" onClick={flipCamera}>↺</button>
       </div>
-      <canvas ref={canvas} className="cameraCanvas" width="640" height="480" style={{display: "none"}}></canvas>
+      <canvas ref={canvas} className="cameraCanvas" style={{display: "none"}}></canvas>
       <div className="filterContainer">
         {filters.map((filter, index) => {
           if(filter.name === "Hue-rotate") {

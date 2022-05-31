@@ -61,6 +61,11 @@
   aspect-ratio: 4/3;
 }
 
+canvas {
+  width: 220px;
+  height: 140px;
+}
+
 .deletePhoto {
   position: absolute;
   top: 10px;

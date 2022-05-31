@@ -1,15 +1,15 @@
 /* eslint no-restricted-globals: 0 */
 
 self.addEventListener('fetch', async (event) => {
-  console.log("fetch event", event.request);
+  // console.log("fetch event", event.request);
   if(navigator.onLine) {
-    console.log("Du är online!");
+    // console.log("Du är online!");
 
     const response = await updateCache(event.request);
     return response;
 
   } else {
-    console.log("Du är offline!");
+    // console.log("Du är offline!");
     event.respondWith(
       caches.match(event.request).then((response) => {
         if(response) { return response }
