@@ -11,7 +11,6 @@ export default function Kamera({images, addImage}) {
   let navigate = useNavigate();
 
   useEffect(() => {
-    notifs();
     if(!localStorage.getItem("code")) {
       console.log("Not logged in");
       navigate("/");
@@ -46,6 +45,7 @@ export default function Kamera({images, addImage}) {
   }
 
   function sendNotif() {
+    notifs();
     if (notificationPermission !== "granted") { return; }
     let text = "Klick! Din bild är nu sparad, klicka här för att se den i galleriet!";
 
@@ -63,6 +63,9 @@ export default function Kamera({images, addImage}) {
     <div className="Kamera">
       { image ? <PhotoPreview image={image} setImage={setImage} /> : <Camera setImage={setImage} notis={sendNotif} /> }
 
+      <Link to="/Landing" className="GoBackToLanding">
+        <button className="GoBackToLandingBtn">Go to Landing Page</button>
+      </Link>
       <Link to="/Galleri">
         <button className='GoToGalleryBtn'><img src={menuIcon} alt='Menu'></img></button>
       </Link>

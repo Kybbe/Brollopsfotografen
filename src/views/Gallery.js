@@ -16,15 +16,7 @@ export default function Gallery({images, removeFromImages}) {
       navigate("/");
     }
   }, []);
-
-  /* async function getPhotos() {
-    const photos = await fetch(`https://picsum.photos/v2/list`)
-      .then(res => res.json())
-
-    setImages(photos);
-    setLoading(false);
-  } */
-
+  
   function removePhoto(removedPhoto) {
     removeFromImages(removedPhoto);
   }
@@ -37,6 +29,9 @@ export default function Gallery({images, removeFromImages}) {
 
   return (
     <div className="Gallery">
+      <Link to="/Landing" className="GoBackToLanding">
+        <button className="GoBackToLandingBtn">Go to Landing Page</button>
+      </Link>
       <Link to="/Kamera" className="GoBackToCameraBtnLink">
         <button className="GoBackToCameraBtn"><img src={logoImg} alt="Logo"></img></button>
       </Link>
